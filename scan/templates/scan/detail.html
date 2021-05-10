@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %} Scanned Photo Detail {% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row" style="padding-bottom: 100px">
+            <div class="col-md-6 mx-auto text-center my-4">
+                <h1 class="display-4">Ваше Фото</h1>
+                <div class="col">
+                    <div class="card">
+                        <div class="">
+                            <img src="/{{ photo.photo }}" class="card-img-top" alt="" style="width: 100%; height: auto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mx-auto text-center my-4">
+                <h1 class="display-4">Отсканированное Фото</h1>
+                <div class="col">
+                    <div class="card">
+                        <div class="scale">
+                            <a href="/{{ photo.pdf_file }}">
+                                <img src="/{{ photo.scanned_photo }}" class="card-img-top scale" alt="" style="width: 100%; height: auto">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

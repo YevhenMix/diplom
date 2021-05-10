@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %} Scanned Photo {% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row mx-auto text-center" style="padding-bottom: 100px">
+            <h1 class="display-4"> Ваши отсканированные файлы</h1>
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+                {% for photo in photos %}
+                    <div class="col">
+                        <div class="card">
+                            <div class="scale">
+                                <a href="{% url 'scan:detail' pk=photo.id %}">
+                                    <img src="/{{ photo.scanned_photo }}" class="card-img-top scale" alt="" style="width: 100%; height: auto">
+                                </a>
+                            </div>
+                            <div class="card-body for-button">
+                                <a class="btn btn-primary" href="/{{ photo.pdf_file }}" role="button" style="width: 100%; height: 100%">Скачать PDF-файл</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
