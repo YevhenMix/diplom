@@ -23,7 +23,7 @@ class HomeView(View):
 
             image = ScanFile.objects.last()
             name = image.scanned_photo.name.split('/')[-1].split('.')[0]
-            convert_to_pdf(image_path=image.scanned_photo.path, name=name, image=image)
+            # convert_to_pdf(image_path=image.scanned_photo.path, name=name, image=image)
             messages.success(request, 'Фото успешно отсканировано!')
             return redirect('scan:scanned')
         context = {'form': form}
